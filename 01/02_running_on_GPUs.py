@@ -4,4 +4,5 @@ import torch
 
 print("=" * 30)
 
-print(torch.cuda.is_available())
+print(torch.backends.mps.is_available())
+print(torch.backends.mps.is_built)

@@ -1,16 +1,5 @@
 # PyTorch - Machine Learning from FreeCodeCamp
 
-## PyTorch Workflow
-
-1. Get Data ready by turning it into tensors
-2. Build or pick a pretrained model
-   - Pick a loss function & optimizer
-   - Build a training loop
-3. Fit the model to the data and make a prediction
-4. Evaluate the model
-5. Improve through experimentation
-6. Save and reload trained model
-
 ## Introduction to Tensors
 
 scalar
@@ -157,3 +146,22 @@ Reproducibility
 - to reduce randomness in neural networks and PyTorch comes the concept of a **random seed**
 - This is a 'flavour' of randomness
 - In PyTorch use manual_seed(). Call it each time you create a random tensor
+
+Device-agnostic code
+
+- Might not always have access to a GPU. Use if available
+- Set `device = "mps"` if available otherwise default to `"cpu"`
+- GPU results in faster computations
+- Putting tensors on the mps or moving back to the cpu
+- Can't convert tensors on GPU/mps to numpy so need to convert to cpu first
+
+## PyTorch Workflow
+
+1. Get Data ready by turning it into tensors
+2. Build or pick a pretrained model
+   - Pick a loss function & optimizer
+   - Build a training loop
+3. Fit the model to the data and make a prediction
+4. Evaluate the model
+5. Improve through experimentation
+6. Save and reload trained model

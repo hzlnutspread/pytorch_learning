@@ -94,4 +94,66 @@ Manipulating tensors/operations
 - Division
 - Matrix multiplication
 
-Matrix multiplication
+Matrix multiplication (dot-product)
+
+- Most common tensor operation
+- Most common error will be shape mismatch
+- To calculate, multiply the rows by the columns
+- A 2x3 matrix dot product by a 3x2 will result in a 2x2 matrix
+  - Inner dimensions must match
+  - Resulting matrix has a shape of the outer dimensions
+
+Matrix transpose
+
+- To fix tensor shape issues, we can manipulate the shape of the tensors using a **transpose**
+- Switches the axes or dimensions of a given tensor, for example
+
+```
+[7, 10],
+[8, 11],
+[9, 12]
+```
+
+will become
+
+```
+[7, 8, 9],
+[10, 11, 12]
+```
+
+Min, max, mean, sum, etc
+
+- torch.min, torch.max
+- torch.mean but must be of float32 datatype to work
+- torch.sum
+- torch.argmin gives the index of the minimum
+- torch.argmax gives the index of the maximum
+
+Reshaping, stacking, squeezing, unsqueezing
+
+- Reshaping = reshapes an input tensor to a defined shape
+- View = returns a view of an input tensor of certain shape but keeps the same memory as the original tensor
+  - If you change the view, you will also change the original vector
+- Stacking = combine multiple tensors on top of eachother (hstack) or side by side (vstack)
+- Squeeze = removes all `1` dimensions from a tensor
+- Unsqueeze = add a `1` dimension to a target tensor
+- Permute = rearranges the dimensions of a target tensor in a specified order. Returns a view
+
+NumPy
+
+- Scientific python numerical computing library
+- Data is in NumPy but you usually want it into a PyTorch tensor
+- `torch.from_numpy(ndarray)`
+- `torch.Tensor.numpy()`
+- Numpy default datatype is float64
+- Tensor default datatype is float32
+- When converting from numpy -> Pytorch, Pytorch will reflect numpy's default datatype of float64
+- If you create a tensor from numpy you are create a new object in memory. Altering the original numpy data will not change new tensor
+
+Reproducibility
+
+- How a neural network learns is:
+  `start with random numbers -> tensor operations -> update random numbers to try and make them better representations of the data -> again -> again`
+- to reduce randomness in neural networks and PyTorch comes the concept of a **random seed**
+- This is a 'flavour' of randomness
+- In PyTorch use manual_seed(). Call it each time you create a random tensor

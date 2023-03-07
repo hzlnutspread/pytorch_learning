@@ -267,3 +267,21 @@ Things we need to train
 - Loss function
 - Optimizer : takes into account the loss of a model and adjusts the model's paramteres (e.g weight and bias) to improve the loss function
 - For PyTorch we need a training loops and a testing loop
+
+Loss functions
+
+- L1Loss creates a loss function that measures the mean absolute error between each element in the input x and the target y
+
+Optimizer
+
+- example is: torch.optim.SGD (stochasti gradient descent)
+- takes model.parameter
+- takes lr = learning rate which is the most important hyperparameter which we set ourselves
+  - Higher learning rate means it will adjust the parameters more each step
+  - Smaller learning rate means smaller the change in the parameter
+- Randomly changes the parameter values to minimum the loss value
+- When it finds a direction that minimizes the loss value it will continue in that direction
+
+Building a training loop
+
+-

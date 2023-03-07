@@ -77,4 +77,10 @@ with torch.inference_mode():
 
 print(y_preds)
 print(y_test)
-plot_predictions(predictions=y_preds)
+# plot_predictions(predictions=y_preds)
+
+# loss function
+loss_fn = nn.L1Loss()
+print(loss_fn)
+# optimizer
+optimizer = torch.optim.SGD(params=model_0.parameters(), lr=0.01)  # lr = learning rate

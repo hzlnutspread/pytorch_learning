@@ -165,3 +165,105 @@ Device-agnostic code
 4. Evaluate the model
 5. Improve through experimentation
 6. Save and reload trained model
+
+Data can be anything
+
+- Excel spreadsheet
+- Images
+- Videos
+- Audio
+- DNA
+- Text
+
+Machine learning has two main parts
+
+- Get data into a numerical representation
+- Build a model to learn patterns in that numerical representation
+
+Linear Regression formula
+
+- y = mx + c
+- y is dependent variable
+- gradient is m
+- c is the intercept (0, y)
+
+Linear Regression
+
+- Can use machine learning to determine how an input maps to its output
+
+Splitting data into training and test sets (very important)
+
+1. Training set (60-80% of data)
+2. Validation set (10-20% of data)
+3. Test set (10-20% of data)
+
+Visualisating data
+
+- Use matplotlib .show()
+
+Linear regression model
+
+- Starts with random values (weight & bias)
+- Looks at training data and adjust the random values to better represent (or get closer to) the ideal values (weight & values we use to create the data)
+- Does this through two main algorithms
+  - Gradient descent (requires_grad=True)
+  - Backpropagation
+
+nn.Module
+
+- Almost every model in PyTorch inherits from nn.Module
+- You need to override the forward() method
+
+PyTorch model building essentials
+
+- torch.nn = buildings blocks for computational graphs (neural network can be considered a computational graph)
+- torch.nn.Paramter = what parameters should our model try and learn. Often a PyTorch layer from torch.nn will set these for us
+- torch.nn.Module = The base class for all neural network modules. If you subclass it, you should override forward()
+- torch.optim = where optimizers in PyTorch live
+- def forward() = Defines what happens in the forward computation
+
+Import modules for each workflow step
+
+1. Get data ready (turn into tensors)
+
+   - torchvision.transforms
+   - torch.utils.data.Dataset
+   - torch.utils.data.Dataloader
+
+2. Build or pick a pretrained model
+
+   - torch.nn
+   - torch.nn.Module
+   - torchvision.models
+   - torch.optim
+
+3. Fit mode to data and make prediction
+4. Evaluate the model
+
+   - torchmetrics
+
+5. Improve through experimentation
+
+   - torch.utils.tensorboard
+
+Check contents of PyTorch model
+
+- We can look at model parameters using `.parameters()`
+
+Make predictions
+
+- To check the model's predictive power, we want to see how well it predicts `y_test` abased on `X_test`
+- When we pass data through our model, its going to run it through the `forward()` method
+- torch.inference_mode() disables gradient tracking, so it will improve performance and go faster
+
+Training a model (intuition building)
+
+- Training is for a model to move from some unknown parameters (may be random) to some known parameters
+- From a poor representation of the data to a better one
+- One way to measure how wrong your models predictions are is to use a loss function (cost function or criterion)
+
+Things we need to train
+
+- Loss function
+- Optimizer : takes into account the loss of a model and adjusts the model's paramteres (e.g weight and bias) to improve the loss function
+- For PyTorch we need a training loops and a testing loop
